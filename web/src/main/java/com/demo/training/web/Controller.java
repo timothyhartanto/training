@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.training.entity.EntityMongo;
+import com.demo.training.impl.RabbitMQServiceImpl;
 import com.demo.training.model.TestModel;
 import com.gdn.training.api.TrainingService;
 
@@ -24,6 +25,9 @@ public class Controller {
 
   @Autowired
   private RedisTemplate<String, String> redisTemplate;
+
+  @Autowired
+  private RabbitMQServiceImpl rabbitMQService;
 
   @GetMapping("/getEntity")
   public String getEntity(@RequestParam int number){
@@ -42,5 +46,14 @@ public class Controller {
     entityMongo.setNumber(testModel.getNumber());
     entityMongo.setName(testModel.getName());
     trainingService.insertEntity(entityMongo);
+  }
+
+  @GetMapping("/sendMessage")
+  public void sendMessageToMQ(@RequestParam String name, @RequestParam int number){
+    TestModel model = TestModel.builder()
+        .name(name)
+        .number(number)
+        .build();
+    rabbitMQService.send(model);
   }
 }
