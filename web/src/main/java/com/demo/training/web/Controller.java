@@ -48,12 +48,17 @@ public class Controller {
     trainingService.insertEntity(entityMongo);
   }
 
-  @GetMapping("/sendMessage")
+  @GetMapping("/sendMessageMQ")
   public void sendMessageToMQ(@RequestParam String name, @RequestParam int number){
     TestModel model = TestModel.builder()
         .name(name)
         .number(number)
         .build();
     rabbitMQService.send(model);
+  }
+
+  @GetMapping("/sendMessageKafka")
+  public void sendMessageToKafka(@RequestParam String text){
+    trainingService.send(text);
   }
 }

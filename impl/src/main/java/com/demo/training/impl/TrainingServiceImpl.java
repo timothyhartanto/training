@@ -2,6 +2,7 @@ package com.demo.training.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.demo.training.entity.EntityMongo;
@@ -18,6 +19,9 @@ public class TrainingServiceImpl implements TrainingService {
 
   @Autowired
   private TrainingPostgresRepository postgresRepository;
+
+  @Autowired
+  private KafkaTemplate<String, String> kafkaTemplate;
 
   @Override
   @Cacheable(value = "entity-redis", key = "#number")
@@ -38,5 +42,12 @@ public class TrainingServiceImpl implements TrainingService {
   @Override
   public EntityPostgres findPostgresEntity(String character) {
     return postgresRepository.findByCharacter(character);
+  }
+
+  String kafkaTopic = "hahaha";
+
+  @Override
+  public void send(String message) {
+    kafkaTemplate.send(kafkaTopic, message);
   }
 }
