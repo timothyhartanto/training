@@ -10,6 +10,8 @@ public interface TrainingService {
 
   void insertEntity(EntityMongo entity);
 
+  void insertPostgresEntity(EntityPostgres entity);
+
   void send(String message);
 
   void simpleMethod();
