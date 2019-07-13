@@ -6,11 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class TestModel {
-  String name;
-  int number;
-  InnerModel innerModel;
+@Builder
+public class InnerModel {
+  private String child;
+
 }

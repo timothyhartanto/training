@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.demo.training.config.BeanMapper;
 import com.demo.training.entity.EntityMongo;
+import com.demo.training.entity.EntityPostgres;
 import com.demo.training.impl.RabbitMQServiceImpl;
+import com.demo.training.model.PostgresEntityRequest;
 import com.demo.training.model.TestModel;
 import com.gdn.training.api.TrainingService;
 
@@ -46,6 +49,12 @@ public class Controller {
     entityMongo.setNumber(testModel.getNumber());
     entityMongo.setName(testModel.getName());
     trainingService.insertEntity(entityMongo);
+  }
+
+  @PutMapping("/insertPostgresEntity")
+  public void insertNewPostgresEntity(@RequestBody PostgresEntityRequest request) {
+    EntityPostgres entityPostgres = BeanMapper.map(request, EntityPostgres.class);
+    trainingService.insertPostgresEntity(entityPostgres);
   }
 
   @GetMapping("/sendMessageMQ")

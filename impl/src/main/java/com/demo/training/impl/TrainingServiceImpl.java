@@ -44,6 +44,11 @@ public class TrainingServiceImpl implements TrainingService {
     return postgresRepository.findByCharacter(character);
   }
 
+  @Override
+  public void insertPostgresEntity(EntityPostgres entity) {
+    postgresRepository.save(entity);
+  }
+
   String kafkaTopic = "hahaha";
 
   @Override
