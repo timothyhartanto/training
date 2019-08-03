@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQListenerServiceImpl {
 
-  @RabbitListener(queues = "${javainuse.rabbitmq.queue}")
+  @RabbitListener(queues = "x-cart.queue.co")
   public void receivedMessage(Object model) {
     try{
       System.out.println("message received : " + model.toString());

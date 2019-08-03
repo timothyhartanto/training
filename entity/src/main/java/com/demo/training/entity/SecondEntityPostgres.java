@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Version;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,20 +13,17 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="table_postgres")
-public class EntityPostgres implements Serializable {
+@Table(name="table_second_postgres")
+public class SecondEntityPostgres implements Serializable {
 
-  private static final long serialVersionUID = 6398134179276980058L;
+  private static final long serialVersionUID = 3388883530171885504L;
 
   @Id
   @GeneratedValue(generator = "system-uuid")
   @GenericGenerator(name = "system-uuid", strategy = "uuid2")
   private String id;
 
-  @Version
-  private Long version;
+  private String text;
 
-  private String character;
-
-  private int numberCharacter;
+  private int number;
 }

@@ -52,9 +52,13 @@ public class Controller {
   }
 
   @PutMapping("/insertPostgresEntity")
-  public void insertNewPostgresEntity(@RequestBody PostgresEntityRequest request) {
+  public void insertNewPostgresEntity(@RequestBody PostgresEntityRequest request) throws Exception{
     EntityPostgres entityPostgres = BeanMapper.map(request, EntityPostgres.class);
-    trainingService.insertPostgresEntity(entityPostgres);
+//    try {
+      trainingService.insertPostgresEntity(entityPostgres);
+//    } catch (Exception e) {
+//
+//    }
   }
 
   @GetMapping("/sendMessageMQ")

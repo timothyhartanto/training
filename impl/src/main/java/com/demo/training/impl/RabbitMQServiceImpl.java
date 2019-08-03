@@ -12,10 +12,10 @@ public class RabbitMQServiceImpl {
   @Autowired
   private AmqpTemplate rabbitTemplate;
 
-  @Value("${javainuse.rabbitmq.exchange}")
+  @Value("${training.rabbitmq.exchange}")
   private String exchange;
 
-  @Value("${javainuse.rabbitmq.routingkey}")
+  @Value("${training.rabbitmq.routingkey}")
   private String routingkey;
 
   public void send(TestModel model) {

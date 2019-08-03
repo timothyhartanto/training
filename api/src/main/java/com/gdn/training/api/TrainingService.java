@@ -10,7 +10,7 @@ public interface TrainingService {
 
   void insertEntity(EntityMongo entity);
 
-  void insertPostgresEntity(EntityPostgres entity);
+  void insertPostgresEntity(EntityPostgres entity) throws Exception;
 
   void send(String message);
 
