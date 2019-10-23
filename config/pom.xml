@@ -14,10 +14,10 @@
 
   <dependencies>
     <!-- Module Dependencies -->
-    <dependency>
-      <groupId>com.demo</groupId>
-      <artifactId>impl</artifactId>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.demo</groupId>-->
+<!--      <artifactId>impl</artifactId>-->
+<!--    </dependency>-->
 
     <!-- Maven Dependencies -->
     <dependency>

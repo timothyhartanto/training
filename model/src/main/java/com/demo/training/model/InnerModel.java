@@ -8,8 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class InnerModel {
+//@Builder
+public class InnerModel extends TestModel {
   private String child;
 
+//  @Override
+//  public String print() {
+//    return "inner";
+//  }
 }

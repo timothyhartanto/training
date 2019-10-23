@@ -13,4 +13,7 @@ public class TestModel {
   String name;
   int number;
   InnerModel innerModel;
+//  public String print() {
+//    return "test";
+//  }
 }

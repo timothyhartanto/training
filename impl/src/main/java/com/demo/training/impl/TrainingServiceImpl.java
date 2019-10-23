@@ -2,6 +2,7 @@ package com.demo.training.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -91,10 +92,16 @@ public class TrainingServiceImpl implements TrainingService {
     }
   }
 
-  String kafkaTopic = "hahaha";
+  final String kafkaTopic = "topic.kafka.training";
 
   @Override
   public void send(String message) {
     kafkaTemplate.send(kafkaTopic, message);
+  }
+
+  @KafkaListener(topics = kafkaTopic, groupId = "groupId.kafka.training")
+  public void kafkaListener(String record) {
+    //    BeanMapper.map(record, .class)
+    System.out.println(record);
   }
 }
