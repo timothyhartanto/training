@@ -39,7 +39,7 @@
     <kafka.version>2.2.2.RELEASE</kafka.version>
     <hibernate.jpa.api.version>1.0.0.Final</hibernate.jpa.api.version>
     <h2-database-version>1.4.181</h2-database-version>
-    <hibernate.version>5.0.12.Final</hibernate.version>
+    <hibernate.version>5.4.24.Final</hibernate.version>
     <commons-lang3-version>3.3.2</commons-lang3-version>
     <orika.version>1.5.1</orika.version>
     <spring.cloud.version>Edgware.SR3</spring.cloud.version>
